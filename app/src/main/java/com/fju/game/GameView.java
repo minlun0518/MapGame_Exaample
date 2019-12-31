@@ -11,15 +11,16 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-public class GameView extends View {
-    private float posX, posY = 400;
+public class GameView extends View { //類別繼承VIEW
+    private float posX, posY = 200; //現在位置
+
 
     public GameView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-    }
+    } //54gl3ul4u.3xu;3ke7h0 gj4k27ru04e.4至少要有兩件鹼購子
 
-    @Override
-    protected void onDraw(Canvas canvas) {
+    @Override //複寫
+    protected void onDraw(Canvas canvas) { //畫圖
         super.onDraw(canvas);
         Log.d("Game", "onDraw: " + getWidth() + "," + getHeight());
         Paint paint = new Paint();
@@ -33,13 +34,43 @@ public class GameView extends View {
 //        }
     }
 
-    public float getPosX() {
-        return posX;
+    public void moveRight(){
+        if(posX<getWidth()-100){
+            this.posX+=50;
+            Log.d("GameView","posX="+posX);
+        }
     }
 
+    public void moveLeft(){
+        if(posX>50){
+            this.posX-=50;
+            Log.d("GameView","posX="+posX);
+        }
+    }
+
+    public void moveUp(){
+        if(posY>=0){
+            this.posY-=50;
+            Log.d("GameView","posY="+posY);
+        }
+    }
+    public void moveDown(){
+        if(posY>=0){
+            this.posY+=50;
+            Log.d("GameView","posY="+posY);
+        }
+    }
+
+
+
+    public float getPosX() {
+        return posX;
+    } //位方漸變起見 我紹了
+
     public void setPosX(float posX) {
-        if (posX > 0 && posX < getWidth()-100) {
+        if (posX >= 0 && posX < getWidth()-100) {
             this.posX = posX;
+            Log.d("GameView","posX="+posX);
         }
     }
 
@@ -49,5 +80,5 @@ public class GameView extends View {
 
     public void setPosY(float posY) {
         this.posY = posY;
-    }
+    } //通道設計ｙ
 }
