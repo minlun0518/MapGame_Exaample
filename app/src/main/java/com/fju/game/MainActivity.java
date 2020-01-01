@@ -8,10 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    //this ru,4au04
 
+    private static final String TAG = MainActivity.class.getSimpleName();
     private GameView gameView;
-    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,28 +32,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.arrow_up:
                 Log.d("MainActivity", "onClick: UP");
-//                gameView.posY-=50;
                 gameView.moveUp();
-                gameView.invalidate();
                 break;
             case R.id.arrow_down:
                 Log.d("MainActivity", "onClick: DOWN");
-//                gameView.posY+=50;
                 gameView.moveDown();
-                gameView.invalidate();
                 break;
             case R.id.arrow_left:
                 Log.d("MainActivity", "onClick: LEFT");
-                //Log.d("MainActivity","setPosX :"+this.gameView.getPosX());
-                //gameView.setPosX(gameView.getX()-50);
                 gameView.moveLeft();
-                gameView.invalidate();
                 break;
             case R.id.arrow_right:
                 Log.d("MainActivity", "onClick: RIGHT");
-                //gameView.setPosX(gameView.getPosX()+50);
                 gameView.moveRight();
-                gameView.invalidate();
                 break;
         }
 
